@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>上海大学数据平台|登录页</title>
+
+  <!-- Google Font: Source Sans Pro -->
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href=".././plugins/fontawesome-free/css/all.min.css">
+  <!-- icheck bootstrap -->
+  <link rel="stylesheet" href=".././plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href=".././public/css/adminlte.min.css">
+  <!-- icon -->
+  <link rel="icon" href="/public/img/favicon.png" type="image/x-icon">
+</head>
+
+<body class="hold-transition login-page">
+  <div class="login-box">
+    <div class="login-logo">
+      <a href="../dashboard">进入控制中心</a>
+    </div>
+    <!-- /.login-logo -->
+    <div class="card">
+      <div class="card-body login-card-body">
+        <p class="login-box-msg">登录账户！</p>
+        <%- include ('./partials/message') %>
+          <form action="./login" method="post">
+            <div class="input-group mb-3">
+              <input type="email" class="form-control" placeholder="请输入邮箱" name='email' id="email"
+                value="<%= typeof email != 'undefined' ? email : '' %>">
+              <div class="input-group-append">
+                <div class="input-group-text">
+                  <span class="fas fa-envelope"></span>
+                </div>
+              </div>
+            </div>
+            <div class="input-group mb-3">
+              <input type="password" class="form-control" placeholder="请输入密码" name="password" id="password"
+                value="<%= typeof password != 'undefined' ? password : '' %>">
+              <div class="input-group-append">
+                <div class="input-group-text">
+                  <span class="fas fa-lock"></span>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-8">
+                <div class="icheck-primary">
+                  <input type="checkbox" id="remember">
+                  <label for="remember">
+                    记住我
+                  </label>
+                </div>
+              </div>
+              <!-- /.col -->
+              <div class="col-4">
+                <button type="submit" class="btn btn-primary btn-block">登录</button>
+              </div>
+              <!-- /.col -->
+            </div>
+          </form>
+
+
+          <p class=" mb-1">
+            <a href="forgot-password">忘记密码</a>
+          </p>
+          <p class="mb-0">
+            <a href="register" class="text-center">注册成为新用户</a>
+          </p>
+      </div>
+      <!-- /.login-card-body -->
+    </div>
+  </div>
+  <!-- /.login-box -->
+
+  <!-- 动画 -->
+  <script src=".././public/js/login.js"></script>
+  <!-- jQuery -->
+  <script src=".././plugins/jquery/jquery.min.js"></script>
+  <!-- Bootstrap 4 -->
+  <script src=".././plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <!-- AdminLTE App -->
+  <script src=".././public/js/adminlte.min.js"></script>
+
+</body>
+
+</html>

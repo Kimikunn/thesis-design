@@ -1,0 +1,8 @@
+@url = http://127.0.0.1:3000
+@json = Content-Type: application/json
+
+###Get All Users Info
+get {{url}}/users
+
+###Get All Codes Info
+get {{url}}/codes
