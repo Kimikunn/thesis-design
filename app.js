@@ -6,6 +6,7 @@ const User = require('./models/User')
 const Code = require('./models/Code')
 const flash = require('connect-flash')
 const session = require('express-session')
+const cookieParser = require('cookie-parser')
 const passport = require('passport')
 
 
@@ -32,7 +33,10 @@ app.use(session({
     saveUninitialized: true
 }))
 
-// //Passport middleware
+//CookieParser middleware
+app.use(cookieParser('SECRET'))
+
+//Passport middleware
 app.use(passport.initialize())
 app.use(passport.session())
 

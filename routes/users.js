@@ -3,6 +3,8 @@ const router = express.Router()
 const bcrypt = require('bcryptjs')
 const passport = require('passport')
 const nodemailer = require('nodemailer')
+const cookie = require('cookie')
+const parse = require('../config/parse');
 
 //User model
 const User = require('../models/User')
@@ -19,6 +21,12 @@ router.get('/register', (req, res) => {
 router.get('/login', (req, res) => {
     res.render('login')
 })
+
+//Login Page
+router.get('/lockscreen', (req, res) => {
+    res.render('lockscreen')
+})
+
 
 //Forgot-password Page
 router.get('/forgot-password', (req, res) => {
@@ -100,6 +108,7 @@ router.post('/login', (req, res, next) => {
         failureRedirect: '/users/login',
         failureFlash: true
     })(req, res, next)
+    // res.cookie('email', req.body.email, { maxAge: 10000 * 2, signed: true });
 })
 
 //Logout Handle
@@ -108,6 +117,17 @@ router.get('/logout', (req, res) => {
     req.flash('success_msg', '已注销！')
     res.redirect('/users/login')
 })
+
+// //Lockscreen Handle
+// router.get('/logout', (req, res) => {
+//     console.log(req.header.cookie);
+//     req.logout()
+//     req.flash('success_msg', '已注销！')
+//     res.redirect('/users/lockscreen')
+//     console.log(req.header.cookie);
+//     console.log('cookies', req.header.cookie);
+// })
+
 
 //Forgot-password Handle
 router.post('/forgot-password', (req, res) => {
